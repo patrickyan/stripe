@@ -98,4 +98,19 @@ Abstract Class Stripe_General {
         }
         return $result;
     }
+
+    public static function convertObjectToArray($data)
+    {
+        if (is_array($data) || is_object($data))
+        {
+            $result = array();
+            foreach ($data as $key => $value)
+            {
+                $result[$key] = self::convertObjectToArray($value);
+            }
+            return $result;
+        }
+        return $data;
+    }
+
 }

@@ -219,6 +219,7 @@ class Extension_Stripe extends Extension {
                     }
                 }
             }
+            $stripe = Stripe_General::convertObjectToArray($stripe);
 
             // Add values of response for Symphony event to process
             if(is_array($context['fields'])) {
